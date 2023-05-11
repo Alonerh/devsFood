@@ -1,26 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import Routes  from './Routes/MainRoutes';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Container, Menu, PageBody } from './AppStyled';
+
+import MenuItem from './components/MenuItem';
+import Cart from './components/Cart';
+
+export default () => {
+
+    return (
+        <BrowserRouter>
+            <Container>
+                <Menu>    
+                    <MenuItem icon='/assets/store.png' link='/' />
+                    <MenuItem icon='/assets/order.png' link='/orders' />
+                    <MenuItem icon='/assets/profile.png' link='/profile' />
+                </Menu>
+                <PageBody>
+                    <Routes/>
+                </PageBody>
+                <Cart/>
+            </Container>       
+        </BrowserRouter>
+    );
 }
-
-export default App;
