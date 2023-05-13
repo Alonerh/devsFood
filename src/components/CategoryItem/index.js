@@ -14,6 +14,7 @@ export default ({data, activeCategory, setActiveCategory}) => {
             onClick={handleCategoryClick}
         >
             <CategoryImage src={data.image}/>
+            {data.name}
         </Container>
     )
 }

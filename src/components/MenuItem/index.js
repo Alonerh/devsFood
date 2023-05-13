@@ -3,7 +3,7 @@ import { LinkArea, LinkIcon } from './styled';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-export const MenuItem = ({icon, link})=>{
+export const MenuItem = ({title, icon, link})=>{
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -17,8 +17,15 @@ export const MenuItem = ({icon, link})=>{
     }
 
     return (
-        <LinkArea href={link} onClick={handleLinkClick} active={isActive}>
+        <LinkArea 
+            data-tooltip-id="top-right" 
+            data-tooltip-content="Texto de exemplo" 
+            href={link} 
+            onClick={handleLinkClick} 
+            active={isActive}
+        >
             <LinkIcon src={icon}/>
+            {title}
         </LinkArea>
     );
 };
