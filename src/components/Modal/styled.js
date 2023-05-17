@@ -11,10 +11,13 @@ export const Container = styled.div`
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.7);
+    
 `;
 export const ModalBody = styled.div`
-    width: 300px;
-    height: 300px;
     background-color: #fff;
-
+    box-shadow: 0 0 50px #000;
+    border-radius: 20px;
+    overflow: auto;
+    max-height: 95vh;
+    max-width: 100vw;
 `;
