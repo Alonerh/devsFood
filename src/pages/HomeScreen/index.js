@@ -16,6 +16,7 @@ import Modal from '../../components/Modal';
 
 import { useEffect } from 'react';
 import API from '../../API';
+import ModalProduct from '../../components/ModalProduct';
 
 
 let searchTimer = null;
@@ -28,6 +29,7 @@ export default () => {
     const [products, setProducts]=useState([]);
     const [totalPages, setTotalPages]=useState(0);
     const [modalStatus, setModalStatus]=useState(false);
+    const[modalData, setModalData]=useState({});
 
     const [activeCategory, setActiveCategory]=useState(0);
     const[activePage, setActivePage]=useState(1);
@@ -42,6 +44,11 @@ export default () => {
             setActivePage(prods.result.page);
         }
     }
+    
+    const handleProductClick = (data)=>{
+        setModalData(data);
+        setModalStatus(true);
+    };
 
     useEffect(()=>{
         clearTimeout(searchTimer);
@@ -101,7 +108,11 @@ export default () => {
                 <ProductArea>
                     <ProductList>
                             {products.map((item, index)=>(
-                                <ProductItem key={index} data={item}/>
+                                <ProductItem 
+                                    key={index} 
+                                    data={item}
+                                    onClick={handleProductClick}
+                                />
                             ))}
                     </ProductList>
                 </ProductArea>
@@ -123,8 +134,8 @@ export default () => {
                 </ProductPaginationArea>
             }
 
-            <Modal status={modalStatus}>
-                Conteúdo do modal
+            <Modal status={modalStatus} setStatus={setModalStatus}>
+                <ModalProduct data={modalData} setStatus={setModalStatus}/>
             </Modal>
 
         </Container>
