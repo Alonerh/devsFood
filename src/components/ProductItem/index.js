@@ -11,14 +11,9 @@ import {
     ProductIngredients
 } from "./styled";
 
-export default  ({data, onClick})=> {
-
-    const handleClick = ()=>{
-        onClick(data);
-    }
-
+export default  ({data})=> {
     return (
-        <Container onClick={handleClick}>
+        <Container>
             <ProductPhotoArea>
                 <ProductPhoto src={data.image}/>
             </ProductPhotoArea>
