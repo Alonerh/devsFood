@@ -5,7 +5,6 @@ const CategoryItem = ({data, activeCategory, setActiveCategory}) => {
 
     const handleCategoryClick = ()=>{
         setActiveCategory(data.id);
-        alert(data.id);
     };
 
     return (
