@@ -6,7 +6,7 @@ import MenuItem from './components/MenuItem';
 import Cart from './components/Cart';
 
 
-export default () => {
+const App = () => {
 
     return (
         <BrowserRouter>
@@ -25,3 +25,5 @@ export default () => {
         </BrowserRouter>
     );
 }
+
+export default App;

@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
     display: flex;
     height: 100vh;
+
+    @media (max-width: 580px) {   
+        flex-direction: column;
+    }
 `;
 export const Menu = styled.div`
     display: flex;
@@ -11,6 +15,11 @@ export const Menu = styled.div`
     flex-direction: column;
     width: 80px;
     background-color: #136713;
+
+    @media (max-width: 580px) {
+        width: 100%;
+        flex-direction: row;
+    }
 `;
 export const PageBody = styled.div`
     display: flex;

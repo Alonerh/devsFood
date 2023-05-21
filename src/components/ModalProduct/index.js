@@ -19,7 +19,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setProducts } from "../../redux/reducers/cartReducer";
 
-export default ({ data, setStatus }) => {
+const ModalProduct = ({ data, setStatus }) => {
     const [qt, setQt]=useState(1);
     const dispatch = useDispatch();
 
@@ -72,3 +72,5 @@ export default ({ data, setStatus }) => {
         </Container>
     )
 };
+
+export default ModalProduct;

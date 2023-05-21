@@ -1,7 +1,7 @@
 
 const BASE = 'https://api.b7web.com.br/devsfood/api';
 
-export default  {
+const API =  {
     getCategories: async()=>{
         const res = await fetch(`${BASE}/categories`);
         const json = res.json();
@@ -32,3 +32,5 @@ export default  {
         return json;
     }
 };
+
+export default API;

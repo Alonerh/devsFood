@@ -11,7 +11,7 @@ import {
     ProductIngredients
 } from "./styled";
 
-export default  ({data, onClick})=> {
+const ProductItem = ({data, onClick})=> {
 
     const handleClick = ()=>{
         onClick(data);
@@ -33,3 +33,5 @@ export default  ({data, onClick})=> {
         </Container>
     )
 };
+
+export default ProductItem;

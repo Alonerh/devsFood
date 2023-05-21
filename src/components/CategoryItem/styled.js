@@ -14,9 +14,25 @@ export const Container = styled.div`
     cursor: pointer;
     transition: all ease .2s;
     color: #0B670B;
+
+    &:first-child {
+        margin-bottom: 15px;
+    }
+
+    @media (max-width: 470px) {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+        padding: 14px;
+    }
 `;
 export const CategoryImage = styled.img`
     width: 55px;
     height: 55px;
     margin-bottom: 5px;
+
+    @media (max-width: 470px) {
+        width: 27px;
+        height: 27px;
+    }
 `;

@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Container, Titulo } from './styled';
 import { setName } from '../../redux/reducers/userReducer';
 
-export default () => {
+const Tela2Screen = () => {
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -27,4 +27,6 @@ export default () => {
             <button onClick={()=>navigate(-1)}>Voltar</button>
         </Container>
     );
-}
+};
+
+export default Tela2Screen;

@@ -1,18 +1,24 @@
 import React, {useState} from 'react';
 import { 
     Container, 
-    CategoryArea, 
-    CategoryList, 
+    CategoryArea,
+    CategoryMain,
+    CategoryList,
+    CategoryList2,
+    CategorySelect,
+    CategorySelectOption,
     ProductArea, 
     ProductList, 
     ProductPaginationArea,
-    ProductPaginationItem
+    ProductPaginationItem,
+    Hamburguer
 } from './styled';
 
 import ProductItem from '../../components/ProductItem';
 import CategoryItem from '../../components/CategoryItem';
 import Header from '../../components/Header';
 import Modal from '../../components/Modal';
+//import CategorySelectOption from '../../components/CategorySelectOption';
 
 import { useEffect } from 'react';
 import API from '../../API';
@@ -22,7 +28,7 @@ import ModalProduct from '../../components/ModalProduct';
 let searchTimer = null;
 
 
-export default () => {
+const HomeScreen = () => {
 
     const [headerSearch, setHeaderSearch]=useState('');
     const [categories, setCategories] = useState([]);
@@ -30,6 +36,13 @@ export default () => {
     const [totalPages, setTotalPages]=useState(0);
     const [modalStatus, setModalStatus]=useState(false);
     const[modalData, setModalData]=useState({});
+    const [data, setData]=useState({
+        id:0, 
+        title:'', 
+        image:'/assets/food-and-restaurant.png',
+        name: 'Tudo'
+    });
+    const [hamb, setHamb]=useState(false);
 
     const [activeCategory, setActiveCategory]=useState(0);
     const[activePage, setActivePage]=useState(1);
@@ -48,6 +61,10 @@ export default () => {
     const handleProductClick = (data)=>{
         setModalData(data);
         setModalStatus(true);
+    };
+
+    const handleShow = ()=>{
+        setHamb(!hamb);
     };
 
     useEffect(()=>{
@@ -80,23 +97,49 @@ export default () => {
 
             {categories?.length > 0 &&
                 <CategoryArea>
-                    Selecione uma categoria: ({activeCategory})
+                    <CategoryMain>
+                        <Hamburguer 
+                            src='/assets/hamburguer.png'
+                            onClick={handleShow}
+                        />
+                        Selecione uma categoria
+                    </CategoryMain>
+                    
+                    {hamb &&
+                        <CategoryList2>
+                            <CategoryItem
+                                    data={data}
+                                    activeCategory={activeCategory}
+                                    setActiveCategory={setActiveCategory}
+                                    title="Todas as categorias" 
+                                    image="/assets/food-and-restaurant.png" 
+                                    />
+                                {categories.map((item, index)=>(
+                                    <CategoryItem
+                                    key={index} 
+                                    data={item} 
+                                    activeCategory={activeCategory} 
+                                    setActiveCategory={setActiveCategory}
+                                    />
+                                    ))} 
+                        </CategoryList2>
+                    }
                     <CategoryList>
-                        <CategoryItem 
-                            data={{
-                                id:0, 
-                                title:'', 
-                                image:'/assets/food-and-restaurant.png',
-                                name: 'Tudo'
-                            }}
+                        <CategoryItem
+                            data={data}
                             activeCategory={activeCategory}
                             setActiveCategory={setActiveCategory}
                             title="Todas as categorias" 
                             image="/assets/food-and-restaurant.png" 
                         />
                         {categories.map((item, index)=>(
-                            <CategoryItem key={index} data={item} activeCategory={activeCategory} setActiveCategory={setActiveCategory}/>
-                        ))}
+                            <CategoryItem
+                                key={index} 
+                                data={item} 
+                                activeCategory={activeCategory} 
+                                setActiveCategory={setActiveCategory}
+                            />
+                        ))} 
                     </CategoryList>
                      
                 </CategoryArea>
@@ -141,3 +184,5 @@ export default () => {
         </Container>
     );
 }
+
+export default HomeScreen;

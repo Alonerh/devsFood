@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, ModalBody } from "./styled";
 
-export default ({status, setStatus, children})=>{
+const Modal = ({status, setStatus, children})=>{
 
     const handleModalClick = (e)=>{
         if(e.target.classList.contains('modalBg')) {
@@ -21,3 +21,5 @@ export default ({status, setStatus, children})=>{
         </Container>
     )
 };
+
+export default Modal;

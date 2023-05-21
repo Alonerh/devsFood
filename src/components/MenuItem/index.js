@@ -3,7 +3,7 @@ import { LinkArea, LinkIcon } from './styled';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 
-export const MenuItem = ({title, icon, link})=>{
+const MenuItem = ({title, icon, link})=>{
 
     const navigate = useNavigate();
     const location = useLocation();

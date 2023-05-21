@@ -8,6 +8,9 @@ export const Container = styled.div`
     align-items: center;
     padding: 20px;
 
+    @media (max-width: 580px) {
+        flex-direction: column;
+    }
 `;
 export const Logo = styled.img`
     height: 70px;
@@ -32,5 +35,10 @@ export const SearchInput = styled.input`
 
     &:focus {
         cursor: text;
+    }
+
+    @media (max-width: 580px) {
+        margin-top: 20px;
+        width: 70%;
     }
 `;
